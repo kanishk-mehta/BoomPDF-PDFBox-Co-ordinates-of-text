@@ -3,8 +3,8 @@ This PDFBox wrapper that can be used for extracting text and text co-ordinates f
 
 ## Dependencies
 
-* [JRE 8 or above]
-* [Nodejs 8 or above](https://nodejs.org/en/) - only if you want to build from source(http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
+* [JRE 8 or above](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
+* [Nodejs 8 or above](https://nodejs.org/en/) - only if you want to build from source
 * [PDFBox v2 or above](https://pdfbox.apache.org/) - only if you want to build from source
 
 > Note: Neither the binaries, nor the source files will work without the *Java Runtime Environment (JRE)*
@@ -13,7 +13,7 @@ This PDFBox wrapper that can be used for extracting text and text co-ordinates f
 
 After cloning the repository, copy the ```main_java.exe``` and the ```BoomPdf.jar``` files to the desired folder. Make sure you have nodejs installed and then run the following code in the ```command prompt```: 
 
-```
+```console
 I:\Path> node main_java.exe "Absolute Path of the PDF" FromPage ToPage
 ```
 Where ```I:\Path>``` is the folder path (don't type this in, it will show up by default once you navigate to the folder using ```cd```), ```FromPage``` is the first page you want to convert and ```ToPage``` is the end page
