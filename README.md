@@ -17,11 +17,11 @@ After cloning the repository, copy the ```main_java.exe``` and the ```BoomPdf.ja
 $ node main_java.exe "Absolute Path of the PDF" FromPage ToPage
 ```
 Where ```FromPage``` is the first page you want to convert and ```ToPage``` is the end page
-
+___
 **The zero position/origin (0,0) is on the top right corner of the page:**
 
 ![page](img/page-small.png "Logo Title Text 1")
-
+___
 ### Build From Source (Linux and OS X)
 Out of the box, ```BoomPdf.java``` returns each glyph/alphabet and special character with coordinates.
 
