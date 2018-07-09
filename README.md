@@ -18,7 +18,7 @@ $ node main_java.exe "Absolute Path of the PDF" FromPage ToPage
 ```
 Where ```FromPage``` is the first page you want to convert and ```ToPage``` is the end page
 
-**The zero position (0,0) is on the top right corner of the page:**
+**The zero position/origin (0,0) is on the top right corner of the page:**
 ![page](img/page-small.png "Logo Title Text 1")
 
 ### Build From Source (Linux and OS X)
