@@ -9,7 +9,7 @@ This PDFBox wrapper that can be used for extracting text and text co-ordinates f
 
 > Note: Neither the binaries, nor the source files will work without the *Java Runtime Environment (JRE)*
 
-## Instructions + Syntax (Windows)
+## Usage (Windows)
 
 After cloning the repository, copy the ```main_java.exe``` and the ```BoomPdf.jar``` files to the desired folder. Make sure you have nodejs installed and then run the following code in the ```command prompt```: 
 
@@ -18,9 +18,15 @@ $ node main_java.exe "Absolute Path of the PDF" FromPage ToPage
 ```
 Where ```FromPage``` is the first page you want to convert and ```ToPage``` is the end page
 
-### From Source (Linux and OS X)
+**The zero position (0,0) is on the top right corner of the page:**
+![page](img/page-small.png "Logo Title Text 1")
+
+### Build From Source (Linux and OS X)
 Out of the box, ```BoomPdf.java``` returns each glyph/alphabet and special character with coordinates.
 
-If you're building the code from Source, please download the PDFBox jar and use the ```BoomPdf.java``` file to customize your solution. 
+If you're building the code from source, please download [the PDFBox jar](https://pdfbox.apache.org/) and use the ```BoomPdf.java``` file to customize your solution. 
 
 Further customization in the output can be done by altering the ```main_java.js``` file. This is the Node.js code that parses the text and returns words with their coordinates (the left-most character's position is taken for reference)
+
+## License
+The main code of this project is licensed under the Apache 2.0 License, found at http://www.apache.org/licenses/LICENSE-2.0.html Any code released under a different licenses will be stated in the header.
