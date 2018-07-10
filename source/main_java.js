@@ -11,26 +11,37 @@ function run(filename, PageX, PageY, callback) {
     var storeString = [];
 
     //  Parse Data read from PDF
-    child.stdout.on("data", (data) => { dataString += (data.toString()); });  //  Read PDF
+    child.stdout.on("data", (data) => {
+        dataString += (data.toString());
+    }); //  Read PDF
     child.stdout.on("close", (close) => { //  Main Function
         //  Refine Input and turn into JSON Array
         var jStrDat = JSON.stringify(dataString);
         // var jStrDat = JSON.stringify(data.toString());
-        var datJAr = [], datArr = jStrDat.substr(1, (jStrDat.length - 6)).split('\\n');
+        var datJAr = [],
+            datArr = jStrDat.substr(1, (jStrDat.length - 6)).split('\\n');
         for (var da of datArr) {
             var temp01 = da.split(') height')[0];
             if (temp01.indexOf('(') < 0) continue;
-            var temp02 = temp01.split(' [');    //  Character = temp02[0];
-            var temp03 = temp02[1].split(',');  //  Coordinates[x,y] = parseInt(temp03[#]);
+            var temp02 = temp01.split(' ['); //  Character = temp02[0];
+            var temp03 = temp02[1].split(','); //  Coordinates[x,y] = parseInt(temp03[#]);
             datJAr.push({
-                C: temp02[0].split('\\').join(''),   //  Character
+                C: temp02[0].split('\\').join(''), //  Character
                 X: parseFloat(temp03[0].split('=')[1]), //  X-coordinate
                 Y: parseFloat(temp03[1].split('=')[1]) //  Y-coordinate
+            });
+            if(da === datArr[datArr.length - 1]) datJAr.push({ // Dummy Element
+                C:'~',
+                X:-1,
+                Y:-1
             });
         };
 
         //  Convert JSON Structure to a Cumulated String
-        var finalString = '', elementString = '', CoX = 0, CoY = 0;
+        var finalString = '',
+            elementString = '',
+            CoX = 0,
+            CoY = 0;
         for (var jel of datJAr) {
             if (CoY == jel.Y) {
                 if (elementString.indexOf('^') < 0) CoX = jel.X;
@@ -50,7 +61,9 @@ function run(filename, PageX, PageY, callback) {
         };
         // setTimeout(() => { callback(storeString) }, 3000);
     });
-    child.stderr.on("error", (error) => { console.error(error); });   //  Detect and Handle Error
+    child.stderr.on("error", (error) => {
+        console.error(error);
+    }); //  Detect and Handle Error
 };
 
 // var thisData;
@@ -64,4 +77,6 @@ function run(filename, PageX, PageY, callback) {
 //====[ Output in String ]=============================================================//
 //=====================================================================================//
 
-run(process.argv[2], process.argv[3], process.argv[4], (data) => { console.log((data.join('\n'))); });
+run(process.argv[2], process.argv[3], process.argv[4], (data) => {
+    console.log((data.join('\n')));
+});
